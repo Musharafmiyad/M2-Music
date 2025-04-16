@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - M2 Music Warehouse</title>
+    <link rel="stylesheet" href="loginstyle.css">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+</head>
+<body>
+    <header>
+        <a href="#" class="logo">
+            <img src="img/logo.png" alt="Logo">
+        </a>
+        <ul class="navbar">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="product.html">Products</a></li>
+            <li><a href="customer.html">Customers</a></li>
+        </ul>
+       <!-- Icon -->
+       <div class="header-icon">
+        <a href="cart.html">
+        <i class='bx bx-cart-alt'></i>
+           </a>
+        <i class='bx bx-search' id="search-icon"></i>
+       </div>
+    </header>
+
+    <main class="main-content">
+        <div class="side-image">
+            <img src="img/Violin-PNG-File.png" alt="Music Store">
+        </div>
+        
+        <div class="form-container">
+            <div class="form-btn">
+                <button onclick="login()" class="toggle-btn">Login</button>
+                <button onclick="register()" class="toggle-btn">Register</button>
+                <div id="Indicator"></div>
+            </div>
+
+            <form id="LoginForm" class="form">
+                <div class="input-box">
+                    <input type="email" name="email" placeholder="Email" required>
+                </div>
+                <div class="input-box">
+                    <input type="password" name="password" placeholder="Password" required>
+                </div>
+                <button type="submit" class="btn">Login</button>
+                <p><a href="#">Forgot password?</a></p>
+            </form>
+
+            <form id="RegForm" class="form">
+                <div class="input-box">
+                    <input type="text" name="firstname" placeholder="Firstname" required>
+                </div>
+                <div class="input-box">
+                    <input type="text" name="lastname" placeholder="Lastname" required>
+                </div>
+                <div class="input-box">
+                    <input type="email" name="email" placeholder="Email" required>
+                </div>
+                <div class="input-box">
+                    <input type="password" name="password" placeholder="Password" required>
+                </div>
+                <button type="submit" class="btn">Register</button>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <p>&copy; 2024 M2 Music Warehouse | All Rights Reserved</p>
+            <div class="footer-icons">
+                <a href="#"><i class='bx bxl-facebook'></i></a>
+                <a href="#"><i class='bx bxl-twitter'></i></a>
+                <a href="#"><i class='bx bxl-instagram'></i></a>
+                <a href="#"><i class='bx bxl-youtube'></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        var LoginForm = document.getElementById("LoginForm");
+        var RegForm = document.getElementById("RegForm");
+        var Indicator = document.getElementById("Indicator");
+
+        function register() {
+            RegForm.style.transform = "translateX(0)";
+            LoginForm.style.transform = "translateX(-300px)";
+            Indicator.style.transform = "translateX(100%)";
+        }
+
+        function login() {
+            RegForm.style.transform = "translateX(300px)";
+            LoginForm.style.transform = "translateX(0)";
+            Indicator.style.transform = "translateX(0)";
+        }
+    </script>
+
+<!-- Add this before the closing body tag in login.html-->
+<script>
+document.getElementById('LoginForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const formData = new FormData(this);
+    
+    fetch('login.php', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            window.location.href = data.redirect;
+        } else {
+            alert(data.message);
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('An error occurred during login');
+    });
+});
+
+document.getElementById('RegForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const formData = new FormData(this);
+    
+    fetch('register.php', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            alert(data.message);
+            login(); // Switch to login form
+            this.reset(); // Clear the form
+        } else {
+            alert(data.message);
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('An error occurred during registration');
+    });
+});
+</script>
+
+</body>
+</html>

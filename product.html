@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - M2 Music Warehouse</title>
+    <link rel="stylesheet" href="productstyle.css">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+</head>
+<body>
+    <header>
+        <a href="#" class="logo">
+            <img src="img/logo.png" alt="Logo">
+        </a>
+        <ul class="navbar">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="login.html">Accounts</a></li>
+            <li>
+                <a href="cart.html" class="cart-icon">
+                    <i class='bx bx-cart'></i>
+                    <span class="cart-badge" id="cart-count">0</span>
+                </a>
+            </li>
+        </ul>
+    </header>
+
+    <main class="products-container">
+        <h1>Our Products</h1>
+        <div class="products-grid" id="products-grid">
+            <!-- Products will be dynamically inserted here -->
+        </div>
+    </main>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast">Item added to cart!</div>
+
+    <footer>
+        <div class="footer-container">
+            <p>&copy; 2024 M2 Music Warehouse | All Rights Reserved</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript Code -->
+    <script>
+        // Sample product data with images
+        const products = [
+            {
+                id: 1,
+                name: "Electric Guitar",
+                price: 25,
+                image: "img/gitar.png",
+                description: "Professional Electric Guitar"
+            },
+            {
+                id: 2,
+                name: "Acoustic Piano",
+                price: 35,
+                image: "img/sitar.png",
+                description: "Classic Acoustic Piano"
+            },
+            {
+                id: 3,
+                name: "Professional Drum Set",
+                price: 50,
+                image: "img/piano.png",
+                description: "Complete Professional Drum Kit"
+            }
+        ];
+
+        // Initialize cart from localStorage
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        updateCartCount();
+
+        // Display products
+        function displayProducts() {
+            const productsGrid = document.getElementById('products-grid');
+            productsGrid.innerHTML = products.map(product => `
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="${product.image}" alt="${product.name}">
+                    </div>
+                    <div class="product-info">
+                        <h3>${product.name}</h3>
+                        <p class="product-description">${product.description}</p>
+                        <p class="product-price">$${product.price.toFixed(2)}</p>
+                        <button class="btn add-to-cart" onclick="addToCart(${product.id})">
+                            <i class='bx bx-cart-add'></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Add to cart function
+        function addToCart(productId) {
+            const product = products.find(p => p.id === productId);
+            const existingItem = cart.find(item => item.id === productId);
+
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({
+                    id: product.id,
+                    name: product.name,
+                    price: product.price,
+                    image: product.image,
+                    quantity: 1
+                });
+            }
+
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartCount();
+            showToast();
+        }
+
+        // Update cart count in header
+        function updateCartCount() {
+            const cartCount = document.getElementById('cart-count');
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            cartCount.textContent = totalItems;
+            cartCount.style.display = totalItems > 0 ? 'flex' : 'none';
+        }
+
+        // Show toast notification
+        function showToast() {
+            const toast = document.getElementById('toast');
+            toast.style.display = 'block';
+            
+            setTimeout(() => {
+                toast.style.display = 'none';
+            }, 2000);
+        }
+
+        // Initialize page
+        displayProducts();
+    </script>
+</body>
+</html>

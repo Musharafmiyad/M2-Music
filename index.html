@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M2 Music Warehouse</title>
+    <!-- Link TO CSS-->
+    <link rel="stylesheet" href="style.css">
+    <!-- Box Icons-->
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <style>
+        /* Search box initially */
+        .search-box {
+            display: none;
+            position: absolute;
+            top: 50px;
+            right: 50px;
+            z-index: 100;
+            background-color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Show the search box when the search icon is clicked */
+        .search-box.active {
+            display: block;
+        }
+
+        /* Style for the input field */
+        .search-box input[type="search"] {
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            width: 200px;
+            font-size: 16px;
+        }
+
+        /* Style for the search button */
+        .search-box button {
+            padding: 10px;
+            background-color: #bc9667;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .search-box button:hover {
+            background-color: #a67845;
+        }
+    </style>
+</head>
+<body>
+    <!--Navbar-->
+    <header>
+        <a href="#" class="logo">
+            <img src="img/logo.png" alt="">
+        </a>
+        <!--Menu-Icon-->
+        <i class='bx bx-menu' id="menu-icon"></i>
+        <!--Links-->
+        <ul class="navbar">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="product.html">Product</a></li>
+            <li><a href="customer.html">Customers</a></li>
+            <li><a href ="login.html">Account</a></li>
+        </ul>
+            <!-- Icon -->
+             <div class="header-icon">
+              <a href="cart.html">
+        <i class='bx bx-cart-alt'></i>
+    </a>
+    <i class='bx bx-search' id="search-icon"></i>
+</div>
+
+        
+        <!-- Search box -->
+        <div class="search-box" id="searchBox">
+            <input type="search" name="" id="searchInput" placeholder="Search here...">
+            <button id="searchButton">Search</button>
+        </div>
+    </header>
+
+    <!--Home-->
+    <section class="home" id="home">
+        <div class="home-text">
+            <h1>M2 Music <br> Warehouse</h1>
+            <p>"M2 Music Warehouse Colombo's Melodic Legacy Since 1998"</p>
+            <a href="#" class="btn">Shop now</a>
+        </div>
+        <div class="home-img">
+            <img src="img/Violin-PNG-File.png" alt="">
+        </div>
+    </section>
+
+    <!--About-->
+    <section class="about" id="about">
+        <div class="about-img">
+            <img src="img/about.jpg" alt="">
+        </div>
+        <div class="about-text">
+            <h2>Our History</h2>
+            <p>Welcome to our musical haven, where melodies have woven a rich tapestry of history since 1998. Nestled in the heart of Colombo, Sri Lanka, our musical instrument business has been a beacon of harmonious innovation and heartfelt passion for over two decades.</p>
+            <p>The story of our business begins in 1998, a time when the musical landscape of Sri Lanka was flourishing with diverse artistic expressions and cultural celebrations. It was during this vibrant era that a group of passionate musicians and enthusiasts joined forces to lay the foundation of what would soon become a cherished institution for musicians of all levels.</p>
+            <p>As the years passed, we continuously expanded our offerings, curating a diverse selection of musical instruments that catered to every individual's unique taste and preference. Our team of skilled artisans and technicians worked tirelessly to ensure each instrument that left our store was crafted with precision and utmost care, allowing musicians to unleash their true potential and create soul-stirring melodies.</p>
+            <a href="#" class="btn">Learn More</a>
+        </div>
+    </section>
+
+    <!--slide show-->
+    
+    <section class="slideshow-section">
+        <div class="heading">
+            <h2>Featured Products</h2>
+        </div>
+        <div class="slideshow-container">
+            <div class="slides">
+                <div class="slide">
+                    <img src="img/bluetoothads.webp" alt="Featured Product 1">
+                </div>
+                <div class="slide">
+                    <img src="img/airpodsads.png" alt="Featured Product 2">
+                </div>
+                <div class="slide">
+                    <img src="img/powerbangads.png" alt="Featured Product 3">
+                </div>
+            </div>
+    
+            <button id="prev" class="nav-button">←</button>
+            <button id="next" class="nav-button">→</button>
+    
+            <div class="navigation"></div>
+        </div>
+    </section>
+
+<!--customer review-->
+    <section class="reviews" id="reviews">
+        <div class="heading">
+            <h2>What Our Customers Say</h2>
+        </div>
+        <div class="reviews-container">
+            <div class="review-box">
+                <div class="review-icon">
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star-half'></i>
+                </div>
+                <p>"Amazing selection of instruments and top-notch service!"</p>
+                <h4>- Sarah M.</h4>
+                <span>Rating: 4.5/5</span>
+            </div>
+            <div class="review-box">
+                <div class="review-icon">
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                </div>
+                <p>"Love the quality of products here, truly unmatched."</p>
+                <h4>- Alex B.</h4>
+                <span>Rating: 5/5</span>
+            </div>
+            <div class="review-box">
+                <div class="review-icon">
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                </div>
+                <p>"Fast delivery and great customer support. Highly recommended!"</p>
+                <h4>- Chris T.</h4>
+                <span>Rating: 5/5</span>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <p>&copy; 2024 M2 Music Warehouse | All Rights Reserved</p>
+            <div class="footer-icons">
+                <a href="#"><i class='bx bxl-facebook'></i></a>
+                <a href="#"><i class='bx bxl-twitter'></i></a>
+                <a href="#"><i class='bx bxl-instagram'></i></a>
+                <a href="#"><i class='bx bxl-youtube'></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript to toggle the search box -->
+    <script>
+        // Get references to elements
+        const searchIcon = document.getElementById('search-icon');
+        const searchBox = document.getElementById('searchBox');
+    
+        // Toggle search box visibility
+        searchIcon.addEventListener('click', () => {
+            searchBox.classList.toggle('active');
+        });
+    </script>
+
+
+
+<script>
+// Slideshow functionality
+    document.addEventListener('DOMContentLoaded', () => {
+        const slidesContainer = document.querySelector('.slides');
+        const slides = document.querySelectorAll('.slide');
+        const navigationDots = document.querySelector('.navigation');
+        const prevButton = document.getElementById('prev');
+        const nextButton = document.getElementById('next');
+    
+        let currentSlide = 0;
+        const slideCount = slides.length;
+        let slideInterval;
+        const intervalTime = 3000; // Time between slides in milliseconds
+    
+        // Create navigation dots
+        slides.forEach((_, index) => {
+            const dot = document.createElement('div');
+            dot.classList.add('dot');
+            if (index === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => goToSlide(index));
+            navigationDots.appendChild(dot);
+        });
+    
+        function updateSlidePosition() {
+            slidesContainer.style.transform = `translateX(-${currentSlide * 100}%)`;
+            
+            // Update navigation dots
+            document.querySelectorAll('.dot').forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentSlide);
+            });
+        }
+    
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slideCount;
+            updateSlidePosition();
+        }
+    
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + slideCount) % slideCount;
+            updateSlidePosition();
+        }
+    
+        function goToSlide(index) {
+            currentSlide = index;
+            updateSlidePosition();
+            resetInterval();
+        }
+    
+        function resetInterval() {
+            clearInterval(slideInterval);
+            slideInterval = setInterval(nextSlide, intervalTime);
+        }
+    
+        // Event listeners
+        prevButton.addEventListener('click', () => {
+            prevSlide();
+            resetInterval();
+        });
+    
+        nextButton.addEventListener('click', () => {
+            nextSlide();
+            resetInterval();
+        });
+    
+        // Start automatic sliding
+        slideInterval = setInterval(nextSlide, intervalTime);
+    
+        // Pause on hover
+        slidesContainer.addEventListener('mouseenter', () => {
+            clearInterval(slideInterval);
+        });
+    
+        slidesContainer.addEventListener('mouseleave', () => {
+            slideInterval = setInterval(nextSlide, intervalTime);
+        });
+    });
+    
+    </script>
+
+
+</body>
+</html>

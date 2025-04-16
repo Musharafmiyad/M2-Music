@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M2 Music Warehouse - Customer Reviews</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+</head>
+<body>
+    <!--Navbar-->
+    <header>
+        <a href="#" class="logo">
+            <img src="img/logo.png" alt="">
+        </a>
+        <!--Menu-Icon-->
+        <i class='bx bx-menu' id="menu-icon"></i>
+        <!--Links-->
+        <ul class="navbar">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#about">About Us</a></li>
+            <li><a href="product.html">Product</a></li>
+            <li><a href="#" class="active">Reviews</a></li>
+            <li><a href="login.html">Account</a></li>
+        </ul>
+        <!-- Icon -->
+        <div class="header-icon">
+            <a href="cart.html"><i class='bx bx-cart-alt'></i></a>
+            <i class='bx bx-search' id="search-icon"></i>
+        </div>
+
+        <!-- Search box -->
+        <div class="search-box" id="searchBox">
+            <input type="search" name="" id="searchInput" placeholder="Search here...">
+            <button id="searchButton">Search</button>
+        </div>
+    </header>
+
+    <!-- Review Form Section -->
+    <section class="review-section" id="review-form">
+        <div class="heading">
+            <h2>Share Your Experience</h2>
+        </div>
+        <div class="review-form-container">
+            <form id="customerReviewForm">
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Rating</label>
+                    <div class="star-rating">
+                        <i class='bx bx-star' data-rating="1"></i>
+                        <i class='bx bx-star' data-rating="2"></i>
+                        <i class='bx bx-star' data-rating="3"></i>
+                        <i class='bx bx-star' data-rating="4"></i>
+                        <i class='bx bx-star' data-rating="5"></i>
+                        <input type="hidden" name="rating" id="rating" value="0">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="review">Your Review</label>
+                    <textarea id="review" name="review" required></textarea>
+                </div>
+
+                <button type="submit" class="btn">Submit Review</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Reviews Display Section -->
+    <section class="reviews" id="reviews-display">
+        <div class="heading">
+            <h2>Customer Reviews</h2>
+        </div>
+        <div class="reviews-container" id="reviewsContainer">
+            <!-- Reviews will be loaded dynamically here -->
+        </div>
+        <div class="pagination" id="paginationContainer"></div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <p>&copy; 2024 M2 Music Warehouse | All Rights Reserved</p>
+            <div class="footer-icons">
+                <a href="#"><i class='bx bxl-facebook'></i></a>
+                <a href="#"><i class='bx bxl-twitter'></i></a>
+                <a href="#"><i class='bx bxl-instagram'></i></a>
+                <a href="#"><i class='bx bxl-youtube'></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="reviews.js"></script>
+</body>
+</html>
